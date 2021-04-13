@@ -1,0 +1,8 @@
+[
+    {
+        "name": "apiToRedis",
+        "listen": "proxy:22220",
+        "upstream": "redis:6379",
+        "enabled": true
+    }
+]
