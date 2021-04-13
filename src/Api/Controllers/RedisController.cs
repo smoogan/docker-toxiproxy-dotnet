@@ -18,7 +18,7 @@ namespace Api.Controllers
         }
 
         [HttpGet]
-        public long RedisTest()
+        public long RedisTest(int delay = 50)
         {
             using (var connection = new Connection("proxy", true))
             {
@@ -26,7 +26,7 @@ namespace Api.Controllers
                 var proxy = client.FindProxy("apiToRedis");
 
                 var latencyToxic = new LatencyToxic();
-                latencyToxic.Attributes.Latency = 50;
+                latencyToxic.Attributes.Latency = delay;
                 latencyToxic.Attributes.Jitter = 5;
                 latencyToxic.Toxicity = 1.0;
 
